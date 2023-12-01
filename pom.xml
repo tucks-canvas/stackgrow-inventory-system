@@ -9,7 +9,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
-        <exec.mainClass>com.mycompany.inventorysystem.InventorySystem</exec.mainClass>
+        <exec.mainClass>com.mycompany.inventorysystem.Login</exec.mainClass>
     </properties>
     <dependencies>
     <!-- Jackson Core -->
@@ -64,6 +64,19 @@
                     <source>19</source>
                     <target>19</target>
                 </configuration>
+            </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.0</version> <!-- Use the latest version available -->
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>com.mycompany.inventorysystem.Login</mainClass> <!-- Specify your main class here -->
+                    </manifest>
+                </archive>
+            </configuration>
             </plugin>
         </plugins>
     </build>
