@@ -564,7 +564,7 @@ public List<Product> readFromExcel(String excelFilePath) {
         if (product.calculateDailySale() > 0) {
             JPanel card = new JPanel();
             card.setLayout(new GridLayout(3, 2)); // Adjust the layout as needed
-            gridLayout.setVgap(2);
+            gridLayout.setVgap(1);
             card.add(new JLabel("Product Name:"));
             card.add(new JLabel(product.getName()));
             card.add(new JLabel("Quantity Sold:"));
@@ -636,11 +636,8 @@ public List<Product> readFromExcel(String excelFilePath) {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel2 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
@@ -648,7 +645,9 @@ public List<Product> readFromExcel(String excelFilePath) {
         jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -663,67 +662,35 @@ public List<Product> readFromExcel(String excelFilePath) {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton4.setText("Reset");
-        buttonGroup1.add(jButton4);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        setBackground(new java.awt.Color(245, 245, 245));
+        setForeground(new java.awt.Color(0, 102, 51));
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
+        jTextField1.setName(""); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton3.setText("Save");
-        buttonGroup1.add(jButton3);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 20, 760, 30));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton1.setText("Add");
-        buttonGroup1.add(jButton1);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addGap(62, 62, 62)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
-
+        jScrollPane3.setForeground(new java.awt.Color(0, 102, 51));
         jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 102, 51));
+        jTabbedPane1.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+
+        jTable2.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(0, 102, 51));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -735,6 +702,8 @@ public List<Product> readFromExcel(String excelFilePath) {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setSelectionBackground(new java.awt.Color(153, 255, 153));
+        jTable2.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -742,14 +711,14 @@ public List<Product> readFromExcel(String excelFilePath) {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 237, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 401, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Inventory Database", jPanel5);
@@ -767,6 +736,7 @@ public List<Product> readFromExcel(String excelFilePath) {
 
         jTabbedPane1.addTab("Daily Sales Report", jPanel1);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new java.awt.CardLayout());
         jTabbedPane1.addTab("Weekly Sales Report", jPanel3);
 
@@ -774,41 +744,65 @@ public List<Product> readFromExcel(String excelFilePath) {
         jTabbedPane1.getAccessibleContext().setAccessibleName("Inventory Database");
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton2.setText("Search");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 68, 766, 310));
+
+        jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 51));
+        jButton1.setText("Add");
+        buttonGroup1.add(jButton1);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 160, 40));
+
+        jButton3.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 102, 51));
+        jButton3.setText("Save");
+        buttonGroup1.add(jButton3);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 190, 40));
+
+        jButton4.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 102, 51));
+        jButton4.setText("Reset");
+        buttonGroup1.add(jButton4);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 190, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jButton2)
-                .addGap(148, 148, 148))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap())
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        tb_load();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        System.out.println(productList);
+        writeToJson(productList);
+        writeToExcel(productList);
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -817,43 +811,30 @@ public List<Product> readFromExcel(String excelFilePath) {
         Add.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-          String text = jTextField1.getText();
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        
+        String text = jTextField1.getText();
         if (!text.isEmpty()) {
             System.out.println ("is it" + !text.isEmpty());
             searchProducts(text);
         } else {
             resetTable();        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        System.out.println(productList);
-        writeToJson(productList);
-        writeToExcel(productList);
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        tb_load();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jTextField1KeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
