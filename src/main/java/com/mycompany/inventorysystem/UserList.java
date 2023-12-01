@@ -322,44 +322,51 @@ private List<User> retrieveUserData() {
 }
 
     private void writeToExcel(List<User> userList) {
-      
-          try (FileInputStream fileIn = new FileInputStream(excelFilePath);
-               Workbook workbook = WorkbookFactory.create(fileIn);
-               FileOutputStream fileOut = new FileOutputStream(excelFilePath)) {
+    String projectPath = System.getProperty("user.dir");
+    String jsonFilePath = projectPath + "/Databases/user.json";
+    String excelFilePath = projectPath + "/Databases/User.xlsx";
 
-              Sheet sheet = workbook.getSheetAt(1);
+    Workbook workbook;
+    try (FileInputStream fileIn = new FileInputStream(excelFilePath)) {
+        workbook = WorkbookFactory.create(fileIn);
+    } catch (IOException e) {
+        e.printStackTrace();
+        return; // Exit the method if there's an error reading the file
+    }
 
-              // Start row index for writing data (assuming your Excel file has headers in the first row)
-              int startRow = 1;
-              //Clears Excel Sheet below column headers
-              int lastRowNum = sheet.getLastRowNum();
-              for (int i = 1; i <= lastRowNum; i++) {
-                  Row row = sheet.getRow(i);
-                  if (row != null) {
-                      sheet.removeRow(row);
-                  }
-              }
+    Sheet sheet = workbook.getSheetAt(0);
 
-              // Iterate through the userList and write to the Excel sheet
-              for (int i = 0; i < userList.size(); i++) {
-                  User user = userList.get(i);
-                  Row row = sheet.createRow(startRow + i);
+    // Clear the Excel sheet below column headers
+    int lastRowNum = sheet.getLastRowNum();
+    for (int i = 1; i <= lastRowNum; i++) {
+        Row row = sheet.getRow(i);
+        if (row != null) {
+            sheet.removeRow(row);
+        }
+    }
 
-                  // Set cell values based on your user properties
-                  row.createCell(0).setCellValue(user.getUsername());
-                  row.createCell(1).setCellValue(user.getPassword());
-                  row.createCell(2).setCellValue(user.getId());
-                  row.createCell(3).setCellValue(user.getType());
-              }
+    // Start row index for writing data (assuming your Excel file has headers in the first row)
+    int startRow = 1;
 
-              // Write the updated workbook back to the file
-              workbook.write(fileOut);
+    // Iterate through the userList and write to the Excel sheet
+    for (int i = 0; i < userList.size(); i++) {
+        User user = userList.get(i);
+        Row row = sheet.createRow(startRow + i);
 
-          } catch (IOException e) {
-              e.printStackTrace();
-          }
+        // Set cell values based on your user properties
+        row.createCell(0).setCellValue(user.getUsername());
+        row.createCell(1).setCellValue(user.getPassword());
+        row.createCell(2).setCellValue(user.getId());
+        row.createCell(3).setCellValue(user.getType());
+    }
 
-      }
+    // Write the updated workbook back to the file
+    try (FileOutputStream fileOut = new FileOutputStream(excelFilePath)) {
+        workbook.write(fileOut);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
 
     private void writeToJson(List<User> user) {
         // Write the updated userList to the JSON file
@@ -574,6 +581,7 @@ private List<User> retrieveUserData() {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         writeToExcel(userList);
+        writeToJson(userList);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

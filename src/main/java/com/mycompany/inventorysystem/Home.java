@@ -39,7 +39,7 @@ public class Home extends javax.swing.JFrame {
                 jToggleButton5.setEnabled(false);
                 this.repaint();
         }
-        setSize(1190, 600);
+        setSize(1200, 750);
 //        this.setExtendedState(Home.MAXIMIZED_BOTH);
     }
     private void importData(String dataType){

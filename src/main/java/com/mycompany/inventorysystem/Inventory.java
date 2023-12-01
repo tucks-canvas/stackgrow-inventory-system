@@ -490,7 +490,7 @@ public List<Product> readFromExcel(String excelFilePath) {
             } else {
                 // If file does not exist, create a new one
                 workbook = new XSSFWorkbook();
-                sheet = workbook.createSheet("Suppliers");
+                sheet = workbook.createSheet("Product");
             }
 
             try (FileOutputStream fileOut = new FileOutputStream(excelFilePath)) {
@@ -560,7 +560,7 @@ public List<Product> readFromExcel(String excelFilePath) {
         if (product.calculateDailySale() > 0) {
             JPanel card = new JPanel();
             card.setLayout(new GridLayout(3, 2)); // Adjust the layout as needed
-
+            gridLayout.setVgap(2);
             card.add(new JLabel("Product Name:"));
             card.add(new JLabel(product.getName()));
             card.add(new JLabel("Quantity Sold:"));
@@ -829,7 +829,10 @@ public List<Product> readFromExcel(String excelFilePath) {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        System.out.println(productList);
+        writeToJson(productList);
         writeToExcel(productList);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
