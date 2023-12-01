@@ -468,7 +468,7 @@ private List<User> retrieveUserData() {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jTabbedPane1.addTab("Supplier Database", jScrollPane2);
+        jTabbedPane1.addTab("Employee Database", jScrollPane2);
 
         jScrollPane3.setViewportView(jTabbedPane1);
 

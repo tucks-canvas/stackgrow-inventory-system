@@ -34,6 +34,7 @@ com\mycompany\inventorysystem\ContactList$3.class
 com\mycompany\inventorysystem\Product.class
 com\mycompany\inventorysystem\ProductView.class
 com\mycompany\inventorysystem\UserList$7.class
+com\mycompany\inventorysystem\UserView$5.class
 com\mycompany\inventorysystem\Supplier.class
 com\mycompany\inventorysystem\ProductEntry$7.class
 com\mycompany\inventorysystem\Login.class
@@ -50,6 +51,7 @@ com\mycompany\inventorysystem\UserList$1.class
 com\mycompany\inventorysystem\Home$3.class
 com\mycompany\inventorysystem\UserEntry.class
 com\mycompany\inventorysystem\ProductView$2.class
+com\mycompany\inventorysystem\Home$6.class
 com\mycompany\inventorysystem\Inventory$8.class
 com\mycompany\inventorysystem\Login$3.class
 com\mycompany\inventorysystem\SupplierEntry$1.class
