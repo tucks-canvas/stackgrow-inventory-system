@@ -364,6 +364,9 @@ public class ContactList extends javax.swing.JPanel {
         writeToExcel(supplierList);
         updateTable(supplierList);
     }
+    public void setSupplierList(List<Supplier> nsupplyList){
+        supplierList = nsupplyList;
+    }
     public void writeToExcel(String excelFilePath,List<Supplier> supplierList) {
         Workbook workbook;
         Sheet sheet;

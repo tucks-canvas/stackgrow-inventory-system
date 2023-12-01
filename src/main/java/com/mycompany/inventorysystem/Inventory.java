@@ -472,6 +472,10 @@ public List<Product> readFromExcel(String excelFilePath) {
             e.printStackTrace();
         }
     }
+    
+    public void setProductList(List<Product> nproductList){
+        productList = nproductList;
+    }
 
     public void writeToExcel(List<Product> productList, String excelFilePath){
             Workbook workbook;

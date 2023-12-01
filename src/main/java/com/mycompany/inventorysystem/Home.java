@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.inventorysystem;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -59,15 +60,20 @@ public class Home extends javax.swing.JFrame {
             // Process the file path based on the selected data type
             switch (dataType) {
                 case "Suppliers":
-                   con.updateTable( con.readFromExcel(filePath));
+                   List<Supplier> importSList = con.readFromExcel(filePath);
+                   con.updateTable(importSList);
+                   con.setSupplierList(importSList);
 
 
                     
                     break;
                 case "Products":
-                    inv.updateTable(inv.readFromExcel(filePath));
+                    List<Product> importList = inv.readFromExcel(filePath);
+                    inv.updateTable(importList);
+                    inv.setProductList(importList);
                     
                     break;
+
             }
         }
     }
